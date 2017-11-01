@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form method='post'>
+  
+</form>
+
+
+<hr />
+
+{% if blogs|length == 0 %}
+
+{%if input_id != "" %}
+
+<div style="background-color:aqua">
+    <h3 style="text-align:left"> {{ input }}</h3>    
+    {{entry}}
+</div>
+{% endif %}
+{% if blogs|length == 0 and input_id == "" %}
+<p> No blogs Yet</p>
+{% endif %}
+
+{% endif %}
+
+{% if blogs|length != 0 %}
+
+<h2 style="background-color:Yellow">Blogs details:</h2>
+
+  {% for blog in blogs %}
+    
+    <h3><a href="/blog?id={{blog.id}}" >{{ blog.title }}</a></h3>
+    <p>         {{blog.blog}} </p>
+   {% endfor %}
+{% endif %}
+
+{% endblock %}
