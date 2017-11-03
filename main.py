@@ -4,12 +4,12 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://build-a-blog2:mypassword@localhost:3306/build-a-blog2'
+
 app.config['SQLALCHEMY_ECHO'] = True
 app.secret_key = 'y337kGcys&zp38'
 db = SQLAlchemy(app)
 
 class Blog(db.Model):
-
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100))
     blog = db.Column(db.String(500))
@@ -49,11 +49,11 @@ def new_post():
 @app.route('/blog')
 def post_blogs():
     blogs = Blog.query.all()
-#    return str(blogs)
-#    return str(request.args.get('id'))
+  #  return str(blogs)
+   # return str(request.args.get('id'))
     if request.args.get('id') == None :
         blogs = Blog.query.all()
-#        return "blogs:" + str(blogs.title)
+        #return "blogs:" + str(blogs.title)
         return render_template('blog.html',blogs=blogs)
     elif request.args.get('id') != "" :
         input_id = request.args.get('id')
