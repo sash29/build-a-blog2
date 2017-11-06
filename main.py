@@ -31,9 +31,9 @@ def new_post():
        entry = request.form['blog']
 
        if input =="" :
-          title_error = "Title should be given"
+          title_error = "Pls enter a blog title"
        if entry == "":
-          blog_error = "write some text in blog"
+          blog_error = "Field cannot be empty"
           title=""
     if not title_error and not blog_error :
        if input != "" :
